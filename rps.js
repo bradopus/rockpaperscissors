@@ -36,7 +36,7 @@ function score() {
     }
 
     if (computerScore == 5) {
-        scores.textContent = "Oh no!  You lost the game!";
+        scores.textContent = "Oh, no!  You lost the game!";
         clearScores();
     }
 };
