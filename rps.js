@@ -10,10 +10,21 @@ function getComputerChoice() {
     return choices[result]; // Returns txt value of choices array
 }
 
+// Creates events for each button
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.className);
+    });
+});
+
 /* Plays round, returns winner
 Ex: "You Lose! Paper beats Rock" */
 function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt("Rock, paper, or scissors?");
+    
+    // Old way of asking
+    // playerSelection = prompt("Rock, paper, or scissors?");
 
     playerSelection = playerSelection.toLowerCase();
     computerSelection = getComputerChoice();
@@ -69,7 +80,10 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-/* Plays 5 rounds, keeps score, declares results */
+// Commenting out logic that plays 5 rounds
+
+/*
+// Plays 5 rounds, keeps score, declares results
 function game() {
     playerScore = 0;
     computerScore = 0;
@@ -93,3 +107,4 @@ function game() {
     playerScore = 0;
     computerScore = 0;
 }
+*/

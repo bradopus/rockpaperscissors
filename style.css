@@ -1,0 +1,25 @@
+body {
+    background-color: grey;
+    font-size: 32px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.choices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+button {
+    font-size: 46px;
+    width: 150px;
+    height: 150px;
+}
