@@ -51,9 +51,6 @@ function clearScores() {
 Ex: "You Lose! Paper beats Rock" */
 function playRound(playerSelection, computerSelection) {
     
-    // Old way of asking
-    // playerSelection = prompt("Rock, paper, or scissors?");
-
     playerSelection = playerSelection.toLowerCase();
     computerSelection = getComputerChoice();
 
@@ -116,34 +113,3 @@ function playRound(playerSelection, computerSelection) {
     }
 
 }
-
-
-
-// Commenting out old logic that plays 5 rounds
-
-/*
-// Plays 5 rounds, keeps score, declares results
-function game() {
-    playerScore = 0;
-    computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-
-    console.log("Player Score: " + playerScore + "  Computer Score: " + computerScore);
-
-    if (playerScore > computerScore) {
-        console.log("Player wins!");
-    }
-    else if (computerScore > playerScore) {
-        console.log("Computer wins!");
-    }
-    else {
-        console.log("It's a tie!");
-    }
-
-    playerScore = 0;
-    computerScore = 0;
-}
-*/
