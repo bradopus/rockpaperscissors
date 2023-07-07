@@ -10,14 +10,42 @@ function getComputerChoice() {
     return choices[result]; // Returns txt value of choices array
 }
 
+// Grabs results to be changed within playRound()
+const results = document.querySelector('.results');
+
 // Creates events for each button
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        playRound(button.className);
+        playRound(button.className); // plays a round based on class name
     });
 });
+
+
+// Displays score
+function score() {
+    const scores = document.querySelector('.scores');
+    scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
+
+
+    // Determines if either player or computer reaches 5, displayers winner
+    if (playerScore == 5) {
+        scores.textContent = "You won the game!";
+        clearScores();
+    }
+
+    if (computerScore == 5) {
+        scores.textContent = "Oh no!  You lost the game!";
+        clearScores();
+    }
+};
+
+// Function to clear scores
+function clearScores() {
+    playerScore = 0;
+    computerScore = 0;
+}
 
 /* Plays round, returns winner
 Ex: "You Lose! Paper beats Rock" */
@@ -32,15 +60,18 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
         switch (computerSelection) {
             case "rock":
-                return console.log("You both chose rock!  Tie!");
+                results.textContent = "You both chose rock!  Tie!";
+                score();
                 break;
             case "paper":
                 computerScore++;
-                return console.log("Computer wins!  Paper beats rock.");
+                results.textContent = "Computer wins!  Paper beats rock.";
+                score();
                 break;
             case "scissors":
                 playerScore++;
-                return console.log("You win!  Rock beats scissors!");
+                results.textContent = "You win!  Rock beats scissors!";
+                score();
                 break;
         }
     }
@@ -48,14 +79,17 @@ function playRound(playerSelection, computerSelection) {
         switch (computerSelection) {
             case "rock":
                 playerScore++
-                return console.log("You win!  Paper beats rock.");
+                results.textContent = "You win!  Paper beats rock.";
+                score();
                 break;
             case "paper":
-                return console.log("You both chose paper!  Tie!");
+                results.textContent = "You both chose paper!  Tie!";
+                score();
                 break;
             case "scissors":
                 computerScore++;
-                return console.log("Computer wins!  Scissors beats paper!");
+                results.textContent = "Computer wins!  Scissors beats paper!";
+                score();
                 break;
         }
     }
@@ -63,14 +97,17 @@ function playRound(playerSelection, computerSelection) {
         switch (computerSelection) {
             case "rock":
                 computerScore++;
-                return console.log("Computer wins!  Rock beats scissors!");
+                results.textContent = "Computer wins!  Rock beats scissors!";
+                score();
                 break;
             case "paper":
                 playerScore++;
-                return console.log("You win!  Scissors beats paper!");
+                results.textContent = "You win!  Scissors beats paper!";
+                score();
                 break;
             case "scissors":
-                return console.log("You both chose scissors!  Tie!");
+                results.textContent = "You both chose scissors!  Tie!";
+                score();
                 break;
         }
     }
@@ -80,7 +117,9 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-// Commenting out logic that plays 5 rounds
+
+
+// Commenting out old logic that plays 5 rounds
 
 /*
 // Plays 5 rounds, keeps score, declares results

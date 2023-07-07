@@ -1,6 +1,7 @@
 body {
     background-color: grey;
     font-size: 32px;
+    margin: 0;
 }
 
 .container {
@@ -9,6 +10,12 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 64px;
+}
+
+.header {
+    font-weight: 600;
+    scale: 1.5;
+    padding-top: 36px;
 }
 
 .choices {
